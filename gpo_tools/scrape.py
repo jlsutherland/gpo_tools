@@ -212,7 +212,7 @@ class Scraper:
         meta = urlopen(mods_page.format(self.api_key, hearing_id)).read()
 
         transcript = re.sub('\x00', '', transcript.decode('utf8'))
-        meta_soup = BeautifulSoup(meta)
+        meta_soup = BeautifulSoup(meta, "lxml")
 
         url = hearing_json['packageLink']
 
