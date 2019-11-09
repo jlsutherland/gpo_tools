@@ -242,6 +242,9 @@ class Scraper:
         except IntegrityError:
             print('Duplicate key. Link not included.')
             self.con.rollback()
+        except Exception as e:
+            print('Unhandled error: {}'.format(e))
+            self.con.rollback()
 
     def _update_stewart_meta(self):
         """
