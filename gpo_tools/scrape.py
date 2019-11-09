@@ -27,7 +27,7 @@ class Scraper:
                                 id integer PRIMARY KEY,
                                 metadata json,
                                 committee_membership json);
-                                
+
                              CREATE TABLE hearings(
                                 id text PRIMARY KEY,
                                 transcript text,
