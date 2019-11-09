@@ -69,7 +69,7 @@ class Scraper:
               "you're running the scraper for the first time, the initial crawl will take some time.")
 
         results_page = 'https://api.govinfo.gov/collections/CHRG/1776-01-28T20%3A18%3A10Z?offset=0&pageSize=10000&' + \
-                       'congress={1}&api_key={0}'
+            'congress={1}&api_key={0}'
 
         for congress in self.congresses:
             hearings_list = json.loads(urlopen(results_page.format(self.api_key, congress)).read())
