@@ -77,8 +77,12 @@ class Scraper:
             for hearing in hearings_list['packages']:
                 if hearing['packageLink'] not in self.searched:
                     print(hearing['packageLink'])
-
-                    self._save_data(hearing)
+                    try:
+                        self._save_data(hearing)
+                    except KeyboardInterrupt:
+                        raise
+                    except Exception as e:
+                        print("Error: {}".format(e))
                     self.searched.append(hearing['packageLink'])
 
     def _extract_nav(self, url_element):
